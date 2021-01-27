@@ -59,17 +59,9 @@ class RadioTest {
     }
     @Test
     void getCurrentSoundPlusMax() {
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
+        for(int i = 0;i < 11; i ++) {
+            radio.setCurrentSoundPlus();
+        }
         assertEquals(10,radio.getCurrentSound());
     }
     @Test
