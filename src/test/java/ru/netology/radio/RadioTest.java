@@ -29,45 +29,45 @@ class RadioTest {
     @Test
     void getCurrentChanelNext() {
         radio.setCurrentChanelNext(5);
-        assertEquals(6, radio.getCurrentChanelNext());
+        assertEquals(6, radio.getCurrentChanel());
 
     }
     @Test
     void getCurrentChanelPrev() {
         radio.setCurrentChanelPrev(8);
-        assertEquals(7, radio.getCurrentChanelPrev());
+        assertEquals(7, radio.getCurrentChanel());
 
     }
     @Test
     void getCurrentChanelNextMax() {
         radio.setCurrentChanelNext(10);
-        assertEquals(0, radio.getCurrentChanelNext());
+        assertEquals(0, radio.getCurrentChanel());
 
     }
     @Test
     void getCurrentChanelPrevMin() {
         radio.setCurrentChanelPrev(-1);
-        assertEquals(9, radio.getCurrentChanelPrev());
+        assertEquals(9, radio.getCurrentChanel());
 
     }
     @Test
     void getCurrentSoundPlus() {
-        radio.setCurrentSoundPlus(4);
-        assertEquals(5,radio.getCurrentSound());
+        radio.setCurrentSoundPlus();
+        assertEquals(1,radio.getCurrentSound());
     }
     @Test
     void getCurrentSoundPlusMax() {
-        radio.setCurrentSoundPlus(10);
+        radio.setCurrentSoundPlus();
         assertEquals(10,radio.getCurrentSound());
     }
     @Test
     void getCurrentSoundMinus() {
-        radio.setCurrentSoundMinus(4);
-        assertEquals(3,radio.getCurrentSound());
+        radio.setCurrentSoundMinus();
+        assertEquals(0,radio.getCurrentSound());
     }
     @Test
     void getCurrentSoundMinusMin() {
-        radio.setCurrentSoundMinus(0);
+        radio.setCurrentSoundMinus();
         assertEquals(0,radio.getCurrentSound());
     }
 }
