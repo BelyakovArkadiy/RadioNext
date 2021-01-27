@@ -53,10 +53,13 @@ class RadioTest {
     @Test
     void getCurrentSoundPlus() {
         radio.setCurrentSoundPlus();
-        assertEquals(1,radio.getCurrentSound());
+        radio.setCurrentSoundPlus();
+        radio.setCurrentSoundPlus();
+        assertEquals(3,radio.getCurrentSound());
     }
     @Test
     void getCurrentSoundPlusMax() {
+        radio.setCurrentSoundPlus();
         radio.setCurrentSoundPlus();
         radio.setCurrentSoundPlus();
         radio.setCurrentSoundPlus();
@@ -71,11 +74,17 @@ class RadioTest {
     }
     @Test
     void getCurrentSoundMinus() {
+        radio.setCurrentSoundPlus();
+        radio.setCurrentSoundPlus();
         radio.setCurrentSoundMinus();
-        assertEquals(0,radio.getCurrentSound());
+        assertEquals(1,radio.getCurrentSound());
     }
     @Test
     void getCurrentSoundMinusMin() {
+        radio.setCurrentSoundPlus();
+        radio.setCurrentSoundPlus();
+        radio.setCurrentSoundMinus();
+        radio.setCurrentSoundMinus();
         radio.setCurrentSoundMinus();
         assertEquals(0,radio.getCurrentSound());
     }
