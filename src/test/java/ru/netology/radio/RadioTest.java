@@ -1,83 +1,73 @@
 package ru.netology.radio;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio radio = new Radio();
+
 
     @Test
-    void getCurrentChanelConsole() {
-        radio.setCurrentChanelConsole(5);
-        assertEquals(5,radio.getCurrentChanel());
-
+    void currentChanelConsole() {
+        Radio radio = new Radio(10);
+        assertEquals(10,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentChanelConsoleMin() {
-        radio.setCurrentChanelConsole(0);
-        assertEquals(0,radio.getCurrentChanel());
-
+    void currentChanelLessMin() {
+        Radio radio = new Radio(-1,0);
+        assertEquals(25,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentChanelConsoleMax() {
-        radio.setCurrentChanelConsole(9);
-        assertEquals(9,radio.getCurrentChanel());
-
-    }
-
-    @Test
-    void getCurrentChanelNext() {
-        radio.setCurrentChanelNext(5);
-        assertEquals(6, radio.getCurrentChanel());
-
+    void currentChanelFrontMin() {
+        Radio radio = new Radio(1,0);
+        assertEquals(0,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentChanelPrev() {
-        radio.setCurrentChanelPrev(8);
-        assertEquals(7, radio.getCurrentChanel());
-
+    void currentChanelMinus() {
+        Radio radio = new Radio(11,0);
+        assertEquals(10,radio.getCurrentChannel());
+    }
+     @Test
+    void currentChanelPlus() {
+        Radio radio = new Radio(10,0,25);
+        assertEquals(11,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentChanelNextMax() {
-        radio.setCurrentChanelNext(10);
-        assertEquals(0, radio.getCurrentChanel());
-
+    void currentChanelLessMax() {
+        Radio radio = new Radio(26,0,25);
+        assertEquals(0,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentChanelPrevMin() {
-        radio.setCurrentChanelPrev(-1);
-        assertEquals(9, radio.getCurrentChanel());
-
+    void currentChanelFrontMax() {
+        Radio radio = new Radio(24,0,25);
+        assertEquals(25,radio.getCurrentChannel());
     }
     @Test
-    void getCurrentSoundPlus() {
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        assertEquals(3,radio.getCurrentSound());
+    void currentSoundPlus() {
+        Radio radio = new Radio(19.00,100.00);
+        assertEquals(20,radio.getCurrentSound());
     }
     @Test
-    void getCurrentSoundPlusMax() {
-        for(int i = 0;i < 11; i ++) {
-            radio.setCurrentSoundPlus();
-        }
-        assertEquals(10,radio.getCurrentSound());
+    void currentSoundMaxPlus() {
+        Radio radio = new Radio(100.00,100.00);
+        assertEquals(100,radio.getCurrentSound());
     }
     @Test
-    void getCurrentSoundMinus() {
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundMinus();
-        assertEquals(1,radio.getCurrentSound());
+    void currentSoundMinus() {
+        Radio radio = new Radio(50.00,0.00,100);
+        assertEquals(49,radio.getCurrentSound());
     }
     @Test
-    void getCurrentSoundMinusMin() {
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundPlus();
-        radio.setCurrentSoundMinus();
-        radio.setCurrentSoundMinus();
-        radio.setCurrentSoundMinus();
+    void currentSoundMinMinus() {
+        Radio radio = new Radio(0.00,0.00,100);
         assertEquals(0,radio.getCurrentSound());
     }
+
+
+
+
+
+
+
 }
