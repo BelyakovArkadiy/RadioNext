@@ -1,5 +1,12 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
 
     private int currentChannel;
@@ -15,9 +22,7 @@ public class Radio {
         }
     }
 
-    public int getCurrentChannel() {
-        return currentChannel;
-    }
+
 
     public Radio(int currentChannel, int minChannel) {
         if (currentChannel > minChannel) {
@@ -59,8 +64,6 @@ public class Radio {
 
     }
 
-    public double getCurrentSound() {
-        return currentSound;
-    }
+
 }
 
