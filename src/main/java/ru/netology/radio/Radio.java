@@ -47,9 +47,7 @@ public class Radio {
         } else if (currentSound == maxSound) {
             this.currentSound = maxSound;
         }
-        else {
-            return;
-        }
+
     }
 
     public Radio(double currentSound, double minSound, double maxSound) {
@@ -58,9 +56,7 @@ public class Radio {
         } else if (currentSound == minSound) {
             this.currentSound = minSound;
         }
-        else {
-            return;
-        }
+
 
     }
 
