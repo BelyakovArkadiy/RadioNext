@@ -2,65 +2,59 @@ package ru.netology.radio;
 
 public class Radio {
 
-    private int currentChannel;
-    private int minChannel = 0;
-    private int maxChannel = 25;
-    private double currentSound;
-    private double minSound = 0.00;
-    private double maxSound = 100.00;
+    private int currentChanel;
+    private int minChanel = 0;
+    private int maxChanel = 9;
+    private int currentSound;
+    private int minSound = 0;
+    private int maxSound = 10;
 
-    public Radio(int currentChanel) {
-        if (currentChanel >= minChannel && currentChanel <= maxChannel) {
-            this.currentChannel = currentChanel;
+
+    public void setCurrentChanelConsole(int currentChanel) {
+        if (currentChanel >= minChanel && currentChanel <= maxChanel) {
+            this.currentChanel = currentChanel;
         }
     }
 
-    public int getCurrentChannel() {
-        return currentChannel;
-    }
-
-    public Radio(int currentChannel, int minChannel) {
-        if (currentChannel > minChannel) {
-            this.currentChannel = currentChannel - 1;
-        } else if (currentChannel < minChannel) {
-            this.currentChannel = maxChannel;
+    public void setCurrentChanelNext(int currentChanel) {
+        if (currentChanel < maxChanel) {
+            this.currentChanel = currentChanel + 1;
+        } else if (currentChanel > maxChanel) {
+            this.currentChanel = minChanel;
         }
     }
 
-    public Radio(int currentChannel, int minChannel, int maxChannel) {
-        if (currentChannel < maxChannel) {
-            this.currentChannel = currentChannel + 1;
-        } else if (currentChannel > maxChannel) {
-            this.currentChannel = minChannel;
+    public void setCurrentChanelPrev(int currentChanel) {
+        if (currentChanel > minChanel) {
+            this.currentChanel = currentChanel - 1;
+        } else if (currentChanel < minChanel) {
+            this.currentChanel = maxChanel;
         }
-
     }
 
-    public Radio(double currentSound, double maxSound) {
+    public int getCurrentChanel() {
+        return currentChanel;
+    }
+
+
+    public int getCurrentSound() {
+        return currentSound;
+    }
+
+    public void setCurrentSoundPlus() {
         if (currentSound < maxSound) {
             this.currentSound = currentSound + 1;
         } else if (currentSound == maxSound) {
             this.currentSound = maxSound;
-        }
-        else {
-            return;
+
         }
     }
 
-    public Radio(double currentSound, double minSound, double maxSound) {
+    public void setCurrentSoundMinus() {
         if (currentSound > minSound) {
             this.currentSound = currentSound - 1;
         } else if (currentSound == minSound) {
             this.currentSound = minSound;
         }
-        else {
-            return;
-        }
-
-    }
-
-    public double getCurrentSound() {
-        return currentSound;
     }
 }
-
