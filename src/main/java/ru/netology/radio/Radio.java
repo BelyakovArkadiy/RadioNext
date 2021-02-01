@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class Radio {
 
     private int currentChannel;
@@ -16,50 +17,54 @@ public class Radio {
     private double minSound = 0.00;
     private double maxSound = 100.00;
 
-    public Radio(int currentChanel) {
-        if (currentChanel >= minChannel && currentChanel <= maxChannel) {
-            this.currentChannel = currentChanel;
+
+    public void setCurrentChannel() {
+        if (currentChannel >= minChannel && currentChannel <= maxChannel) {
+            this.currentChannel = currentChannel;
         }
     }
 
 
-
-    public Radio(int currentChannel, int minChannel) {
+    public void setCurrentChannelMinus() {
         if (currentChannel > minChannel) {
-            this.currentChannel = currentChannel - 1;
+            this.currentChannel--;
         } else if (currentChannel < minChannel) {
             this.currentChannel = maxChannel;
         }
     }
 
-    public Radio(int currentChannel, int minChannel, int maxChannel) {
+    public void setCurrentChannelPlus() {
         if (currentChannel < maxChannel) {
-            this.currentChannel = currentChannel + 1;
+            this.currentChannel++;
         } else if (currentChannel > maxChannel) {
             this.currentChannel = minChannel;
         }
-
     }
 
-    public Radio(double currentSound, double maxSound) {
+
+    public void setCurrentSoundNext() {
         if (currentSound < maxSound) {
-            this.currentSound = currentSound + 1;
+            this.currentSound++;
         } else if (currentSound == maxSound) {
             this.currentSound = maxSound;
         }
-
     }
 
-    public Radio(double currentSound, double minSound, double maxSound) {
+    public void setCurrentSoundPrev() {
         if (currentSound > minSound) {
-            this.currentSound = currentSound - 1;
+            this.currentSound--;
         } else if (currentSound == minSound) {
             this.currentSound = minSound;
         }
-
-
     }
 
+    public Radio(int currentChannel) {
+        this.currentChannel = currentChannel;
+    }
 
+    public Radio(double currentSound) {
+        this.currentSound = currentSound;
+    }
 }
+
 

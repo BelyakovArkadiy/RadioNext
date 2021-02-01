@@ -69,9 +69,7 @@
                 <configuration>
                     <rules>
                         <rule>
-                            <excludes>
-                                <exclude>*Test</exclude>
-                            </excludes>
+
                             <limits>
                                 <limit>
                                     <counter>BRANCH</counter>
